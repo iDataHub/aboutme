@@ -1,0 +1,32 @@
+% !Mode:: "TeX:UTF-8"
+% !TEX program  = xelatex --shell-escape
+\documentclass[
+    convert={
+        ghostscript,
+        size = 512,
+        density = 2048,
+        outext = .png,
+    },
+]{standalone}
+    % enable `--shell-escape`
+    \usepackage{ifplatform}
+        \ifshellescape\else
+            \errmessage{You should use `--shell-escape` option when compiling.}
+        \fi
+    \usepackage{cncolours}
+    \usepackage{tcolorbox}
+        \newcommand{\背景颜色}{靛蓝}
+        \newcommand{\文本颜色}{月白}
+        \newcommand{\文本缩写字体}{\texttt}
+        \newcommand{\文本全称字体}{\tiny\texttt}
+        \tcbset{colback=\背景颜色,colframe=\背景颜色,size=tight}
+\begin{document}
+\tcbox{\color{\文本颜色}
+$
+    \left[
+        \frac{\文本缩写字体{iDH}}%
+             {\文本全称字体{SUSTech}}
+    \right]
+$
+}
+\end{document}
